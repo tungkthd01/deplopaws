@@ -1,0 +1,35 @@
+{% extends 'posts/header.html' %}
+
+
+
+{% block content %}
+<div class="row">
+  <a href="upload">
+    <button>Upload File</button>
+  </a>
+  
+  <div>
+    <table>
+      <thead>
+        <tr>
+            <th>title</th>
+            <th>decription</th>
+            <th>file</th>
+            <th>keyencrytion</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in post %}
+            <tr>
+              <td>{{p.title}}</td>
+              <td>{{p.decription}} </td>
+              <td> <a href="{{ p.file.url }}" class ="btn btn-primary btn-sn" target="_blank"> Download</a></td>
+              <td>{{p.keyencrytion}}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+ 
+</div>
+{% endblock content %}
